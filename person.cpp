@@ -1,7 +1,7 @@
 #include "person.h"
 
 Person::Person(std::string name, std::string last_name, unsigned int year,
-               unsigned int  month, unsigned int day)
+               unsigned int month, unsigned int day)
                : m_name(name)
                , m_last_name(last_name)
                , m_year(year)
@@ -41,10 +41,10 @@ void Person::set_max_days()
 
 void Person::check_set_year()
 {
-  if(m_year < MIN_YEAR) {
-    m_year = MIN_YEAR;
-  } else if(m_year > MAX_YEAR) {
-    m_year = MAX_YEAR;
+  if(m_year < Min_year) {
+    m_year = Min_year;
+  } else if(m_year > Max_year) {
+    m_year = Max_year;
   }
   if ((m_year % 4 == 0 && m_year % 100 != 0) || m_year % 400 == 0) {
     m_is_leap_year = true;
@@ -53,10 +53,10 @@ void Person::check_set_year()
 
 void Person::check_set_month()
 {
-  if(m_month < MIN_MONTH) {
-    m_month = MIN_MONTH;
-  } else if(m_month > MAX_MONTH) {
-    m_month = MAX_MONTH;
+  if(m_month < Min_month) {
+    m_month = Min_month;
+  } else if(m_month > Max_month) {
+    m_month = Max_month;
   }
 }
 
