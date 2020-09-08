@@ -1,6 +1,6 @@
 #include "person.h"
 
-Person::Person(std::string name, std::string last_name, unsigned int year,
+PERSON::Person::Person(std::string name, std::string last_name, unsigned int year,
                unsigned int month, unsigned int day)
                : m_name(name)
                , m_last_name(last_name)
@@ -15,13 +15,13 @@ Person::Person(std::string name, std::string last_name, unsigned int year,
     set_zodiac_sign_month();
 }
 
-void Person::print() const
+void PERSON::Person::print() const
 {
   std::cout << m_name << " " << m_last_name << " "  << m_zodiac_sign_year
             << " " << m_zodiac_sign_month << std::endl;
 }
 
-void Person::set_max_days()
+void PERSON::Person::set_max_days()
 {
   switch(m_month) {
     case 4: case 6: case 9: case 11:
@@ -39,7 +39,7 @@ void Person::set_max_days()
   }
 }
 
-void Person::check_set_year()
+void PERSON::Person::check_set_year()
 {
   if(m_year < Min_year) {
     m_year = Min_year;
@@ -51,7 +51,7 @@ void Person::check_set_year()
   }
 }
 
-void Person::check_set_month()
+void PERSON::Person::check_set_month()
 {
   if(m_month < Min_month) {
     m_month = Min_month;
@@ -60,7 +60,7 @@ void Person::check_set_month()
   }
 }
 
-void Person::check_set_day()
+void PERSON::Person::check_set_day()
 {
   set_max_days();
   if(m_day < 1) {
@@ -71,7 +71,7 @@ void Person::check_set_day()
 }
 
 
-void Person::set_zodiac_sign_year()
+void PERSON::Person::set_zodiac_sign_year()
 {
   std::string zodiac_year_signs[12] = {"Monkey", "Rooster", "Dog", "Pig",
                                        "Rat", "Ox", "Tiger", "Rabbit",
@@ -80,7 +80,7 @@ void Person::set_zodiac_sign_year()
   m_zodiac_sign_year = zodiac_year_signs[rem];
 }
 
-void Person::set_zodiac_sign_month()
+void PERSON::Person::set_zodiac_sign_month()
 {
   if((m_month == 12 and m_day > 23) or (m_month == 1 and m_day < 21)) {
     m_zodiac_sign_month = "Capricorn";
