@@ -1,12 +1,12 @@
 #pragma once
 #include <iostream>
 
-const int Min_year = 1910;
-const int Max_year = 2020;
-const int Min_month = 1;
-const int Max_month = 12;
-
 namespace PERSON {
+ const int Min_year = 1910;
+ const int Max_year = 2020;
+ const int Min_month = 1;
+ const int Max_month = 12;
+
  class Person {
  private:
    std::string m_name;
