@@ -50,7 +50,9 @@ bool PERSON::Person::is_less_than_min()
 bool PERSON::Person::is_more_than_max()
 {
   if(m_year > Max_year) {
+    return true;
   }
+  return false;
 }
 
 bool PERSON::Person::is_leap_year()
