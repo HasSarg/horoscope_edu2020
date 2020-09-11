@@ -6,7 +6,7 @@ namespace PERSON {
  const int Max_year = 2020;
  const int Min_month = 1;
  const int Max_month = 12;
- const int Min_day = 12;
+ const int Min_day = 1;
 
  class Person {
  private:
