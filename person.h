@@ -15,7 +15,6 @@ namespace PERSON {
    unsigned int m_month;
    unsigned int m_day;
    unsigned int m_max_days;
-   bool m_is_leap_year;
    std::string m_zodiac_sign_month;
    std::string m_zodiac_sign_year;
  public:
@@ -26,7 +25,10 @@ namespace PERSON {
    void set_max_days();
    void check_set_day();
    void check_set_month();
-   void check_set_year();
+   bool is_leap_year();
+   bool is_less_than_min();
+   bool is_more_than_max();
+   void set_year();
    void set_zodiac_sign_month();
    void set_zodiac_sign_year();
  };

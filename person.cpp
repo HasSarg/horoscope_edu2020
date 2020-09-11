@@ -8,7 +8,7 @@ PERSON::Person::Person(std::string name, std::string last_name, unsigned int yea
                , m_month(month)
                , m_day(day)
 {
-    check_set_year();
+    set_year();
     check_set_month();
     check_set_day();
     set_zodiac_sign_year();
@@ -28,7 +28,7 @@ void PERSON::Person::set_max_days()
       m_max_days = 30;
       break;
     case 2:
-      if(m_is_leap_year) {
+      if(is_leap_year()) {
         m_max_days = 29;
       }else{
         m_max_days = 28;
@@ -39,15 +39,34 @@ void PERSON::Person::set_max_days()
   }
 }
 
-void PERSON::Person::check_set_year()
+bool PERSON::Person::is_less_than_min()
 {
   if(m_year < Min_year) {
-    m_year = Min_year;
-  } else if(m_year > Max_year) {
-    m_year = Max_year;
+    return true;
   }
+  return false;
+}
+
+bool PERSON::Person::is_more_than_max()
+{
+  if(m_year > Max_year) {
+  }
+}
+
+bool PERSON::Person::is_leap_year()
+{
   if ((m_year % 4 == 0 && m_year % 100 != 0) || m_year % 400 == 0) {
-    m_is_leap_year = true;
+    return true;
+  }
+  return false;
+}
+
+void PERSON::Person::set_year()
+{
+  if(is_less_than_min()) {
+    m_year = Min_year;
+  } else if (is_more_than_max()) {
+    m_year = Max_year;
   }
 }
 
@@ -69,7 +88,6 @@ void PERSON::Person::check_set_day()
     m_day = m_max_days;
   }
 }
-
 
 void PERSON::Person::set_zodiac_sign_year()
 {
